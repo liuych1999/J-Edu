@@ -1,0 +1,559 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta content="telephone=no" name="format-detection" />
+	    <meta content="email=no" name="format-detection" />
+	    <title>新闻教育在中国——数据解码近代新闻教育发展史</title>
+		<script src="js/jquery-1.7.2.min.js" language="javascript"></script>
+		<script src="js/d3.min.js" language="javascript"></script>
+		<script src="js/jquery.color.js" language="javascript"></script>
+
+
+
+		
+
+	</head>
+	<style>
+		body,button,dd,dl,dt,form,h1,h2,h3,h4,h5,h6,hr,input,li,ol,p,td,textarea,th,ul{margin:0;padding:0}
+		body{
+			font-size:16px; 
+			font-family: '微软雅黑','PingFang SC','Droidsansfallback';
+			color:#000;
+			background:#fff; 
+			background-image:url("images/dietu6.jpg");
+			backface-repeat:no-repeat;
+			overflow-x: hidden; }
+		.body-bg img{}
+		img{vertical-align:top;}
+		a img{border:none;}
+		a{color:#5d3a88;text-decoration:none;outline-style:none;}
+		var,em{font-style:normal}
+		ul,li{list-style:none}
+		.mobile-only{display: none}
+		.pc-only{display: block;}
+		.cover{width: 100%; height: 100%; position: relative; text-align: center; background-image: url("images/tou5.jpg"); background-repeat: no-repeat; background-size:100%; background-color: #fff; color: #fff; font-size: 50px; line-height: 500px}
+		.cover-bg{position: absolute; z-index: -1; top:0; left:0; width: 1200px; height: auto;}
+		.cover-bg img{position: absolute; display: none;}
+		.content-div{padding-top: 10px; padding-bottom: 10px; position: relative; width: 100%; height: auto}
+		.content-wrap{width: 640px; margin:0 auto; font-size: 16px; line-height: 28px; text-align: left;}
+		.content-wrap p{padding-top: 15px; padding-bottom: 15px;color: #000;}
+		.content-wrap .subtitle span{font-weight: 900}
+		.content-wrap .subtitle{color:#000; font-size: 20px; text-align: center; }
+		.content-wrap .subtitle1 span{border-bottom: 2px #f7d19c solid; padding-bottom: 4px; font-weight: 900}
+		.content-wrap .subtitle1{color:#000; font-size: 20px; text-align: center; }
+		.content-wrap .caption{color:#333; font-size: 12px; line-height: 20px; width: 70%; margin:0 auto;}
+		.content-wrap .caption1{color:#333; font-size: 12px; line-height: 20px;text-align: center; width: 70%; margin:0 auto;}
+		.chart-div{width: 990px; height: 500px; position: relative; margin: 0 auto; overflow: hidden; }
+        .chart-div1{width: 990px; height: 600px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div2{width: 990px; height: 600px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("images/yjsjz.png"); background-repeat: no-repeat; background-size:100%,100%;}
+		.chart-div3{width: 960px; height: 540px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div4{width: 990px; height: 500px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div5{width: 990px; height: 700px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div6{width: 990px; height: 419px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div7{width: 990px; height: 419px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div8{width: 990px; height: 600px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div9{width: 990px; height: 570px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("images/fdsjz1.png"); background-repeat: no-repeat; background-size:100%,100%;}
+		.chart-scroll-wrap{width: 990px; height: 500px; position: relative; margin: 0 auto; overflow-x: scroll; }
+		.chart-scroll-horizontal{width: 990px; height: 100%; position: relative; background-image: url(images/youpiao1.jpg); opacity: 1}
+        .chart-scroll-wrap .tip{position: absolute; z-index:1000; background-image: url(images/scroll-tip.png); width: 120px; height:80px; background-size: 100% auto; top:200px;}
+		.chart-scroll-wrap .tip .hand{animation:moveLeft 2s infinite linear; -webkit-animation:moveLeft 2s infinite linear; position: absolute;}
+		@keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+		@-webkit-keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+		
+		.credits{width: 100%; float: left; position: relative; text-align: center; font-size: 12px; line-height: 18px; padding-bottom: 40px; padding-top: 30px }
+		.credits p{width: 440px; margin: 0 auto; padding-bottom: 7px; font-weight: 400; color:#999;}
+		.credits p b{font-weight: 900}
+		.credits p.first{border-top: #999 1px solid; height: 30px; width: 640px}
+
+
+
+		
+		@media (max-width: 640px){
+			body{overflow-x: hidden;}
+			.mobile-only{display: block}
+			.pc-only{display:none;}
+			.cover{width: 100%; height: 30%; position: relative; text-align: center; background-image: url("images/tou5.jpg"); background-repeat: no-repeat; background-size:100%; background-color: #fff; color: #fff; font-size: 50px; line-height: 500px}
+		    .cover-bg{position: absolute; z-index: -1; top:0; left:0; width: 1200px; height: auto;}
+		    .cover-bg img{position: absolute; display: none;}
+			.content-wrap{width: 90%; margin:0 auto; font-size: 16px; line-height: 28px; text-align: justify;overflow-x: hidden;}
+			.chart-div{width: 90%; height:40%;overflow-x: hidden; margin:0 auto;}
+			.chart-div2{width: 90%;height:29%;overflow-x: hidden; margin:0 auto;}
+			.chart-div1{width: 90%;height:60%;overflow-x: hidden; margin:0 auto;}
+			.chart-div3{width: 90%;height:29%;position: relative; margin: 0 auto; overflow: hidden;}
+			.chart-div4{width: 90%;overflow-x: hidden; margin:0 auto;}
+			.chart-div5{width: 100%;height:60%;overflow-x: hidden; margin:0 auto;}
+			.chart-div6{width: 90%;height:40%;overflow-x: hidden; margin:0 auto;}
+			.chart-div7{width: 90%;height:40%;overflow-x: hidden; margin:0 auto;}
+			.chart-div8{width: 90%;height:40%;overflow-x: hidden; margin:0 auto;}
+			.chart-div9{width: 90%;height:29%;overflow-x: hidden; margin:0 auto;}
+			.chart-scroll-wrap{width: 90%; margin:0 auto;}
+			.chart-scroll-wrap{ overflow-x: scroll; }
+			.credits p{width: 100%; font-size: 12px}
+			.credits p.first{width: 80%;padding-left: 10%}	
+
+			.chart-scroll-wrap .tip{position: absolute; z-index:1000; background-image: url(images/scroll-tip.png); width: 120px; height:80px; background-size: 100% auto; top:200px;}
+			.chart-scroll-wrap .tip .hand{animation:moveLeft 2s infinite linear; -webkit-animation:moveLeft 2s infinite linear; position: absolute;}
+			@keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+			@-webkit-keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+			
+		}
+
+      #scrolly {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background-color: transparent;
+        padding: 1rem;
+        flex-direction: row-reverse;
+
+      }
+
+
+      article {
+        position: relative;
+        max-width: 20rem;
+        margin-left: 100px;
+      }
+
+      figure {
+        position: -webkit-sticky;
+        position: sticky;
+        width: 100%;
+        margin: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+
+      figure p {
+        text-align: center;
+        padding: 1rem;
+        position: absolute;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 8rem;
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .step {
+        margin: 0 auto 2rem auto;
+        color: #000000;
+        background-color: rgba(255, 255, 255, 0.5);
+        font-size: 17px;
+        line-height: 180%;
+        padding: 2em;
+        pointer-events: none;
+        box-shadow:0px 0px  8px 3px #bcbcbc;
+      }
+    
+      .invisible {
+        visibility: hidden;
+      }
+
+      .step:last-child {
+        margin-bottom: 0;
+      }
+
+      .step.is-active {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #000000;
+      }
+
+    #mapchart {
+    width: 1100px;
+    height: 600px;
+    margin: 0 auto;
+}
+	</style>
+	<body>
+		
+	<!--头图部分-->	
+	<div class="cover">		
+
+	</div>
+		
+	<!--开头部分+视频-->	
+	<div class="credits">
+        <p class="first"></p>
+        <p><b>(网页加载可能需要时间，请耐心等待。建议通过谷歌浏览器浏览。若加载不成功，请退出重新进入，它在努力中～）</b></p>
+        <p>&nbsp;</p>
+	</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p></p>
+			<p>邵飘萍曾在评论近代中国新闻界时说道，“我国现在之新闻界，其腐败幼稚、毋庸讳言，而根本问题，由于人才之缺乏，品类之不齐。”他认为<span class="highlight">“欲救其弊，知非提倡新闻学不可。”</span>新闻教育是革除报业流弊的重要途径，新闻教育能使报纸更好地承担社会职责，对于一个健康的社会有着重要的意义。</p>
+			<p>党的二十大报告指出，<span class="highlight">“要加快构建中国特色哲学社会科学学科体系、学术体系、话语体系”</span>。以中国为方法，为探寻我国新闻教育的本土化发展，我们对1918年到1949年间近代中国开展的新闻教育情况进行了统计分析，与当时怀揣新闻教育理想的先驱们对话，试图从教育的角度去进一步了解近代中国的新闻史，以史鉴今，为构建新闻传播学科自主知识体系厚植土壤。</p>
+		</div>
+	</div>
+	
+	<!--第一部分-->	
+	<div class="content-div">
+	
+    <main> 
+    <section id="scrolly">
+        <figure style="height: 600px;top: 0px;">
+          <iframe aria-label="" frameborder="0" scrolling="no" src="https://flo.uri.sh/story/1822641/embed" style="width:100%;height:700px;">
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <title>散点</title>
+
+  <script>if ("ontouchstart" in window) { document.documentElement.classList.add("is-touch"); }</script>
+
+
+  <link rel="stylesheet" type="text/css" href="story_player.css">
+  <script src="story_player.js" charset="utf-8"></script>
+</head><body id="story" class="nav-style-tractor">
+    <style id="custom-nav-css" title="custom-css"></style>
+    <nav class="story-furniture ">
+      <div class="steppers no-select">
+        <button class="first" disabled></button>
+        <button class="previous" disabled></button>
+        <button class="play-pause small"></button>
+        <button class="next"></button>
+        <button class="last"></button>
+        <div class="count">
+          <span class="current"></span><span class="total"></span>
+        </div>
+        <button class="play-pause large"></button>
+      </div>
+      <div class="text"><p class="caption"></p></div>
+      <div class="progress"><span></span></div>
+    </nav>    <!-- translateZ(0) is a workaround fix for an old bug that resurfaced in Chromium v.89 that causes the contents of the inner iframe
+    in a story to become invisible it is scrolled out of view. See https://bugs.chromium.org/p/chromium/issues/detail?id=335442 -->
+  <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" scrolling="no" src="about:blank" style="transform: translateZ(0);"></iframe>
+</body>
+</html>
+          </iframe>
+        </figure>
+
+        <article>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>我们共搜集了1918年至1949年间79所开办新闻教育的院校，统计了这些院校的名称、开展新闻教育的院系、办学地点、开始办学年份等信息。一些院校的新闻教育延续至今，也有部分院校因为种种原因消失在了历史的长河中。无一例外的是，这79所院校都对近代乃至当代中国的新闻教育做出了不可磨灭的贡献。</p>
+          </div>
+          <div class="step invisible"></div>
+          <div class="step">
+            <p>近代中国的新闻教育起源于1918年。北京大学新闻学研究会的成立被视作中国新闻教育的发端，聚集徐宝璜、邵飘萍等众多耳熟能详的新闻大家。近代新闻教育办学风潮在1938达到了顶峰。这一年，全国抗日战争如火如荼进行，应军事报道、战时宣传等需要，有8所院校开办新闻院系。新闻教育的另一个高潮在1945年至1947年，解放战争催生了一大批新闻院系，三年间共有15所院校展开新闻教育。（有11所新闻院系开办时间不明，未作展示）</p>
+          </div>
+ 
+        </article>
+      </section>
+
+      <section>
+    </section>
+</main>
+
+    <!-- <div class='debug'></div> -->
+    <script src="d3.min.js" tppabs="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+    <script src="intersection-observer.js" tppabs="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="stickyfill.min.js" tppabs="http://historiascondatos.com/js/stickyfill.min.js"></script>
+    <script src="scrollama.min.js" tppabs="http://historiascondatos.com/js/scrollama.min.js"></script>
+
+    <script>
+
+      // using d3 for convenience
+      var main = d3.select("main");
+      var scrolly = main.select("#scrolly");
+      var figure = scrolly.select("figure");
+      var article = scrolly.select("article");
+      var step = article.selectAll(".step");
+
+      // initialize the scrollama
+      var scroller = scrollama();
+
+      // generic window resize listener event
+      function handleResize() {
+        // 1. update height of step elements
+        var stepH = Math.floor(window.innerHeight * 0.75);
+        step.style("height", 450 + "px");
+
+        var figureHeight = window.innerHeight / 2;
+        var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+
+        figure
+          .style("height", figureHeight + "px")
+          .style("top", 0 + "px");
+
+        // 3. tell scrollama to update new element dimensions
+        scroller.resize();
+      }
+
+      // scrollama event handlers
+      function handleStepEnter(response) {
+        console.log(response);
+        // response = { element, direction, index }
+
+        // add color to current step only
+        step.classed("is-active", function(d, i) {
+          return i === response.index;
+        });
+
+        // update graphic based on step
+        figure.select("p").text(response.index + 1);
+    
+        var iframe = document.querySelector("#scrolly iframe");
+        iframe.src = iframe.src.replace(/#slide-.*/, "") + "#slide-" + response.index;
+      }
+
+      function setupStickyfill() {
+        d3.selectAll(".sticky").each(function() {
+          Stickyfill.add(this);
+        });
+      }
+
+      function init() {
+        setupStickyfill();
+
+        // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+        handleResize();
+
+        // 2. setup the scroller passing options
+        //    this will also initialize trigger observations
+        // 3. bind scrollama event handlers (this can be chained like below)
+        scroller
+          .setup({
+            step: "#scrolly article .step",
+            offset: 0.07,
+            debug: false
+          })
+          .onStepEnter(handleStepEnter);
+
+        // setup resize event
+        window.addEventListener("resize", handleResize);
+      }
+
+      // kick things off
+      init();
+    
+    </script>
+		</div>
+	<!--总揽图-->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    <!--第一部分：地图-->
+	<div class="content-wrap">
+			<p class="subtitle1"><span>01 近代中国新闻教育集中于东部地区</span></p>
+		</div>
+	<div id="mapchart"></div>
+	<!--交互说明-->
+	<div class="content-wrap">
+			<p class="caption">注：<span class="highlight">交互说明</span>：可点击<span class="highlight">黄色气泡</span>查看各地区近代开办新闻教育的数量。使用鼠标滚动可以放大缩小地图进行细节查看。滚动左右空白处滑至下页</p>
+		</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p>从办学地点看，近代中国的新闻教育具有区域聚集性，<span class="highlight">华北、长三角以及粤港地区三个地区</span>开办了绝大多数的新闻院系。其中，上海在近代中国拥有最多的新闻院系，共有29所院校开办于此，北京以13所的数量位居其后。通过散点图可以发现，新闻教育的区域性与近代中国各地区的政治经济发展状况高度重合。（有1所新闻院系办学地点不明，未作展示）</p>
+		</div>
+		<br>
+		<div class="content-wrap">
+			<p class="subtitle1"><span>02 近代高校开设新闻相关科系中“新闻系”最多</span></p>
+		</div>
+	</div>
+	
+	<!--第二部分：科系词云图-->
+    <div class="chart-div" >
+		<iframe src='https://flo.uri.sh/visualisation/12689643/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:100%;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'></div>
+		</div>
+	<!--科系文案-->
+	<div class="content-div">
+		<div class="content-wrap">
+			<p>近代专业新闻教育的出现源于业界和学界的共谋。随着中国报业的发展，<span class="highlight">“新闻有学”</span>的观点逐渐被业内人士所接受。基于业界的倡议，加之各类院校的配合和支持，才得以加速新闻教育在我国的创立。而新闻相关专业和院系的设立，则表明高等院校新闻教育的逐步正规化。</p>
+			<p>在可考证的42所开办新闻教育的院校中，<span class="highlight">38所院校均单独设立新闻或者报学相关学科院系</span>，足见学界对新闻教育的重视。其中有12所设立新闻系，6所设立新闻学系，5所设立新闻专修科和报学系。另有部分院校如清华大学将新闻教育设在中国文学系等其他科系。</p>
+			<p>以史鉴今，当前我国有上百所高校均开办了新闻等相关专业。在媒介融合背景下，纯粹的报学系已不复存在，应运而生的是新媒体学院等。由此可见看出我国新闻教育的与时俱进。</p>
+		</div>
+		<div class="content-wrap">
+			<p class="subtitle1"><span>03 近代中国新闻教育长河中的里程碑</span></p>
+		</div>
+	</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p>近代新闻教育在探索中曲折前进。因时因势，部分院校新闻教育的创办成为近代新闻教育长河中的里程碑。而这一过程，贯穿中国本土版图的大江南北。</p>
+			
+		</div>
+	</div>
+	<!--第三部分：学校案例图-->
+    <div class="chart-div6";>
+		<iframe src='https://flo.uri.sh/visualisation/12689858/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:100%;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'></div>
+		</div>	
+	<div class="content-div">
+		<div class="content-wrap">
+			<p>北京大学新闻学研究会的创立是中国新闻教育的开端；而由教会创办的上海圣约翰大学的报学系则被学界公认为中国第一个新闻学专业，《申报》在1921年10月13日的本埠新闻中以<span class="highlight">《约翰创设新闻科》</span>为题对这则消息进行报道。</p>
+		</div>
+	</div>
+	
+	
+	<!--第二部分-->		
+	<div class="content-div">
+		<div class="content-wrap">
+			<p class="subtitle1"><span>04 “瑜亮”——中国近代新闻教育的杰出代表</span></p>
+		</div>
+	</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p>在中国近代新闻教育史中，可考证的新闻教育机构共有79所。而发展最快、实力最强的当属——<span class="highlight">燕京大学新闻系和复旦大学新闻学系</span>，被人们并称为<span class="highlight">“瑜亮”</span>，一个是外来势力的杰出代表，一个是国人自办新闻教育的领头羊，都对当今我国新闻教育产生重要影响。其辉煌的背后也有着曲折的发展历程。</p>
+		</div>
+	</div>
+	<!--时间轴图-->	
+    <div class="chart-div2";>
+		
+	</div>
+	<div class="content-wrap">
+			<p class="caption">1924～1949:燕京大学新闻系发展历程时间轴——北平办学、成都复课和北平复校</p>
+		</div>
+	<div class="content-div">
+			<div class="content-wrap">			
+			<p>1924年燕京大学新闻系在司徒雷登的努力下得以成立。此后因经费短缺于1927年停办。1929年，随着密苏里大学新闻学院和燕京大学的合作，燕京大学新闻系正式恢复办学。</p>
+			<p>至1949年新中国成立前夕，几经战乱，燕京大学新闻系经历了<span class="highlight">北平办学、成都复课和北平复校</span>三个时期。</p>
+		</div>
+	</div>
+	
+	<div class="chart-div9";>
+		
+		</div>
+	<div class="content-wrap">
+			<p class="caption">1926～1949:复旦大学新闻学系发展历程时间轴——初创时期、重庆时期、返沪后</p>
+		</div>
+	<div class="content-div">
+			<div class="content-wrap">			
+			<p>复旦大学的新闻教育始于中国文学科。1926年，由谢六逸主持开设新闻学组，聘请陈望道和邵力子负责新闻学课程的讲授。直至1929年9月，随着复旦大学全校系科调整，<span class="highlight">新闻学组扩建为新闻学系</span>。</p>
+			<p>此后受战争影响，赶赴重庆。随着抗日战争胜利，返回上海。伴随新中国的诞生，复旦大学新闻学系逐渐成为全国高校中的著名系科之一。</p>
+		</div>
+	</div>
+		
+	<div class="content-div">
+		    <div class="content-wrap">
+			<p class="subtitle1"><span>05 中国近代投身新闻教育的部分知名学人</span></p>
+		</div>
+	</div>
+	<!--报人通览图-完成-->
+	<div class="chart-scroll-wrap">
+		<div class="chart-scroll-horizontal"><img src="images/bao.jpg"></div>
+		<div class="mobile-only tip">
+			<div class="hand"><img src="images/hand.png" width="60"></div>
+		</div>
+		<div class="pc-only tip">
+			<div class="hand"><img src="images/hand.png" width="60"></div>
+		</div>
+	</div>
+
+	
+
+
+	<!--结语部分-->	
+	<div class="content-div">
+		<div class="content-wrap">
+			<p>戈公振曾在复旦大学和大厦大学演讲时提到新闻教育的目的是<span class="highlight">“给记者一个立脚点，国民皆有研究的必要”</span>。关照近代新闻教育的发展史，可以遍历这一“立脚点”是如何一步步在中国大地扎根的。</p>
+			<p>新闻是历史的初稿。而新闻教育培养了数代镌刻历史初稿的人。回顾我国近代新闻教育发展史，是探索我国新闻教育本土化绕不过的历程，同时也为在当代<span class="highlight">构建我国新闻传播学科自主知识体系</span>提供了富饶的历史土壤。</p>
+		</div>
+
+	</div>
+	<div class="credits">
+        <p class="first"></p>
+        <p><b>注：</b>本文选取数据的时间跨度</p>
+		<p>1918年至1949年</p>
+        <p>&nbsp;</p>
+		<p><b>参考内容：</b>中共二十大报告文字实录 http://www.news.cn/politics/cpc20/zb/2022zfwesdzb/kmh/wzsl.htm</p>
+		<p>许晓明. 中国近代新闻教育发展史研究(1912~1949)[D].河北大学,2015.</p>
+        <p>&nbsp;</p>
+		<p><b>数据来源：</b>许晓明. 中国近代新闻教育发展史研究(1912~1949)[D].河北大学,2015.</p>
+		<p>青苹果数据中心：《申报》全文数据库</p>
+		<p>&nbsp;</p>
+        <p><b>作者：</b>吴澳 柳宇成</p>
+		<p><b>联系我们：</b>18801285262@163.com</p>
+		<p>&nbsp;</p>
+		<p>本网页pc端和手机移动端均可浏览</p>
+        <p>@中国传媒大学</p>
+        <p>&nbsp;</p>
+      </div>  
+    </div> 
+
+  <script src="js/echarts.js"></script>
+  <script src="js/china.js"></script>
+  <script src="js/map.js"></script>
+
+</body>
+<script type="text/javascript">
+	var isMobile = $(window).width()>640?false:true;
+	var maxWIDTH = isMobile? $(window).width():990
+	var maxHEIGHT = $(window).height()
+	
+	var WIDTH = maxWIDTH
+	var HEIGHT = maxHEIGHT
+	var highlightFlag = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+	$(document).scroll(function(){			
+		   
+			var top = $(document).scrollTop()
+			if(top>$(window).height()+100){
+				
+			}
+			
+			/* 高亮说明文字 */
+			for(var i=0; i<highlightFlag.length; i++){
+				var highlight = $(document).find(".highlight").eq(i).offset().top
+				if(top>highlight-$(window).height()*0.5){				
+					if(highlightFlag[i]==0){
+						$(document).find(".highlight").eq(i).animate({backgroundColor:'#f7d19c'},1000)
+						highlightFlag[i]=1;
+					}
+				} 
+			}
+
+			
+
+	})
+
+	$(document).ready(function(){
+		if(isMobile) {
+			$(".chart-scroll-wrap").find(".tip").css("left",WIDTH*0.3)
+			$(".chart-scroll-wrap").bind("touchstart",function(){
+				$(this).find(".tip").fadeOut(500)
+			})
+		}
+	})
+
+
+	
+
+
+</script>
+
+
+
+</html>
